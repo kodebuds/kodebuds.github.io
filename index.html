@@ -3,100 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chartink</title>
+    <title>Kodebuds - Learn to Code</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-gray-900 text-gray-100 min-h-screen">
-    <header class="bg-gradient-to-r from-indigo-600 to-purple-600 py-6">
+<body class="bg-slate-900 text-gray-100 min-h-screen">
+    <header class="bg-gradient-to-r from-blue-600 to-purple-600 py-6">
         <div class="container mx-auto px-4">
             <nav class="flex justify-between items-center">
-                <h1 class="text-2xl font-bold">TradeBuds</h1>
-                <div class="space-x-6">
-                    <a href="#" class="hover:text-blue-200">Markets</a>
-                    <a href="#" class="hover:text-blue-200">Analysis</a>
-                    <a href="#" class="hover:text-blue-200">Education</a>
-                    <a href="#" class="bg-blue-500 px-4 py-2 rounded-lg hover:bg-blue-600">Start Trading</a>
+                <h1 class="text-2xl font-bold">Kodebuds</h1>
+                <div class="space-x-4">
+                    <a href="#" class="hover:text-blue-200">Home</a>
+                    <a href="#" class="hover:text-blue-200">Tutorials</a>
+                    <a href="#" class="hover:text-blue-200">Projects</a>
                 </div>
             </nav>
         </div>
     </header>
 
     <main class="container mx-auto px-4 py-12">
-        <!-- Hero Section -->
-        <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
             <div class="space-y-6">
-                <h2 class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-                    Trade Smarter, Not Harder
+                <h2 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                    Learn to Code, Build the Future
                 </h2>
-                <p class="text-gray-300 text-xl">
-                    Advanced trading tools and real-time market analysis for informed decision making.
+                <p class="text-gray-300 text-lg">
+                    Join our community of passionate coders and start your programming journey today.
                 </p>
                 <div class="flex space-x-4">
-                    <a href="#" class="bg-indigo-600 hover:bg-indigo-700 px-8 py-3 rounded-lg font-semibold">
-                        Open Account
+                    <a href="#" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold">
+                        Start Learning
                     </a>
-                    <a href="#" class="border border-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-indigo-600">
-                        Demo Trading
+                    <a href="#" class="border border-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-600">
+                        View Projects
                     </a>
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-4">
-                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-sm">BTC/USD</span>
-                        <span class="text-green-400">+2.45%</span>
-                    </div>
-                    <div class="text-2xl font-bold">$43,521.67</div>
+                <div class="bg-slate-800 p-6 rounded-lg">
+                    <i class="fab fa-python text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="font-bold mb-2">Python</h3>
+                    <p class="text-gray-400">Learn the basics of Python programming</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-sm">ETH/USD</span>
-                        <span class="text-red-400">-1.23%</span>
-                    </div>
-                    <div class="text-2xl font-bold">$2,245.89</div>
+                <div class="bg-slate-800 p-6 rounded-lg">
+                    <i class="fab fa-js text-4xl text-yellow-300 mb-4"></i>
+                    <h3 class="font-bold mb-2">JavaScript</h3>
+                    <p class="text-gray-400">Master web development with JS</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-sm">Gold</span>
-                        <span class="text-green-400">+0.75%</span>
-                    </div>
-                    <div class="text-2xl font-bold">$1,892.30</div>
+                <div class="bg-slate-800 p-6 rounded-lg">
+                    <i class="fab fa-react text-4xl text-blue-400 mb-4"></i>
+                    <h3 class="font-bold mb-2">React</h3>
+                    <p class="text-gray-400">Build modern web applications</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg border border-gray-700">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-sm">EUR/USD</span>
-                        <span class="text-red-400">-0.15%</span>
-                    </div>
-                    <div class="text-2xl font-bold">1.0892</div>
+                <div class="bg-slate-800 p-6 rounded-lg">
+                    <i class="fab fa-git-alt text-4xl text-orange-500 mb-4"></i>
+                    <h3 class="font-bold mb-2">Git</h3>
+                    <p class="text-gray-400">Version control mastery</p>
                 </div>
-            </div>
-        </div>
-
-        <!-- Features Section -->
-        <div class="grid md:grid-cols-3 gap-8 mt-16">
-            <div class="bg-gray-800 p-8 rounded-lg">
-                <i class="fas fa-chart-line text-4xl text-blue-400 mb-4"></i>
-                <h3 class="text-xl font-bold mb-4">Technical Analysis</h3>
-                <p class="text-gray-400">Advanced charting tools and indicators for precise market analysis.</p>
-            </div>
-            <div class="bg-gray-800 p-8 rounded-lg">
-                <i class="fas fa-robot text-4xl text-purple-400 mb-4"></i>
-                <h3 class="text-xl font-bold mb-4">Automated Trading</h3>
-                <p class="text-gray-400">Set up trading bots and automated strategies for 24/7 trading.</p>
-            </div>
-            <div class="bg-gray-800 p-8 rounded-lg">
-                <i class="fas fa-shield-alt text-4xl text-green-400 mb-4"></i>
-                <h3 class="text-xl font-bold mb-4">Risk Management</h3>
-                <p class="text-gray-400">Advanced tools for position sizing and risk control.</p>
             </div>
         </div>
     </main>
 
-    <footer class="bg-gray-800 py-6 mt-12">
+    <footer class="bg-slate-800 py-6 mt-12">
         <div class="container mx-auto px-4 text-center text-gray-400">
-            <p>Trading involves risk. Only trade with money you can afford to lose.</p>
-            <p class="mt-2">&copy; 2024 TradeBuds. All rights reserved.</p>
+            <p>&copy; 2024 Kodebuds. Building the future through code.</p>
         </div>
     </footer>
 </body>
