@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kodebuds - Learn to Code</title>
+    <title>Kodebuds</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -24,16 +24,20 @@
             pointer-events: none;
             overflow: hidden;
             z-index: -1;
-            opacity: 0.25;
+            opacity: 0.3;
         }
         
         .float-icon {
             position: absolute;
-            animation: float-up 20s linear infinite;
             opacity: 0;
             font-size: 32px;
             filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
         }
+
+        .float-normal { animation: float-up 20s linear infinite; }
+        .float-slow { animation: float-up-slow 25s linear infinite; }
+        .float-fast { animation: float-up-fast 15s linear infinite; }
+        .float-zigzag { animation: float-zigzag 22s linear infinite; }
 
         .icon-blue { color: #60A5FA; }
         .icon-purple { color: #A78BFA; }
@@ -43,21 +47,43 @@
         
         @keyframes float-up {
             0% {
-                transform: translateY(100vh) rotate(0deg) scale(0.8);
+                transform: translateY(100vh) rotate(0deg) scale(0.8) translateX(0);
                 opacity: 0;
             }
             10% {
                 opacity: 1;
-                transform: translateY(90vh) rotate(45deg) scale(1);
+                transform: translateY(90vh) rotate(45deg) scale(1) translateX(20px);
+            }
+            50% {
+                transform: translateY(50vh) rotate(180deg) scale(0.9) translateX(-20px);
             }
             90% {
                 opacity: 0.6;
-                transform: translateY(10vh) rotate(315deg) scale(0.8);
+                transform: translateY(10vh) rotate(315deg) scale(0.8) translateX(20px);
             }
             100% {
-                transform: translateY(-10vh) rotate(360deg) scale(0.6);
+                transform: translateY(-10vh) rotate(360deg) scale(0.6) translateX(0);
                 opacity: 0;
             }
+        }
+
+        @keyframes float-zigzag {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 0; }
+            10% { transform: translateY(80vh) translateX(50px) rotate(90deg); opacity: 1; }
+            30% { transform: translateY(60vh) translateX(-50px) rotate(180deg); opacity: 0.8; }
+            50% { transform: translateY(40vh) translateX(50px) rotate(270deg); opacity: 0.6; }
+            70% { transform: translateY(20vh) translateX(-50px) rotate(360deg); opacity: 0.4; }
+            100% { transform: translateY(-10vh) translateX(0) rotate(450deg); opacity: 0; }
+        }
+
+        @keyframes float-up-slow {
+            0% { transform: translateY(100vh) translateX(-30px) rotate(0deg); opacity: 0; }
+            100% { transform: translateY(-10vh) translateX(30px) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes float-up-fast {
+            0% { transform: translateY(100vh) translateX(15px) rotate(0deg); opacity: 0; }
+            100% { transform: translateY(-10vh) translateX(-15px) rotate(720deg); opacity: 0; }
         }
     </style>
 </head>
@@ -65,33 +91,43 @@
     <canvas id="bg"></canvas>
     <div class="floating-icons">
         <!-- Column 1 -->
-        <i class="material-icons float-icon icon-blue" style="left: 5%; animation-delay: 0s;">code</i>
-        <i class="material-icons float-icon icon-purple" style="left: 5%; animation-delay: 10s;">terminal</i>
+        <i class="material-icons float-icon float-normal icon-blue" style="left: 5%; animation-delay: 0s;">code</i>
+        <i class="material-icons float-icon float-normal icon-purple" style="left: 5%; animation-delay: 10s;">terminal</i>
         <!-- Column 2 -->
-        <i class="material-icons float-icon icon-green" style="left: 20%; animation-delay: 2s;">laptop_mac</i>
-        <i class="material-icons float-icon icon-orange" style="left: 20%; animation-delay: 12s;">devices</i>
+        <i class="material-icons float-icon float-normal icon-green" style="left: 20%; animation-delay: 2s;">laptop_mac</i>
+        <i class="material-icons float-icon float-normal icon-orange" style="left: 20%; animation-delay: 12s;">devices</i>
         <!-- Column 3 -->
-        <i class="material-icons float-icon icon-pink" style="left: 35%; animation-delay: 4s;">memory</i>
-        <i class="material-icons float-icon icon-blue" style="left: 35%; animation-delay: 14s;">bug_report</i>
+        <i class="material-icons float-icon float-normal icon-pink" style="left: 35%; animation-delay: 4s;">memory</i>
+        <i class="material-icons float-icon float-normal icon-blue" style="left: 35%; animation-delay: 14s;">bug_report</i>
         <!-- Column 4 -->
-        <i class="material-icons float-icon icon-purple" style="left: 50%; animation-delay: 6s;">cloud</i>
-        <i class="material-icons float-icon icon-green" style="left: 50%; animation-delay: 16s;">http</i>
+        <i class="material-icons float-icon float-normal icon-purple" style="left: 50%; animation-delay: 6s;">cloud</i>
+        <i class="material-icons float-icon float-normal icon-green" style="left: 50%; animation-delay: 16s;">http</i>
         <!-- Column 5 -->
-        <i class="material-icons float-icon icon-orange" style="left: 65%; animation-delay: 8s;">database</i>
-        <i class="material-icons float-icon icon-pink" style="left: 65%; animation-delay: 18s;">storage</i>
+        <i class="material-icons float-icon float-normal icon-orange" style="left: 65%; animation-delay: 8s;">database</i>
+        <i class="material-icons float-icon float-normal icon-pink" style="left: 65%; animation-delay: 18s;">storage</i>
         <!-- Column 6 -->
-        <i class="material-icons float-icon icon-blue" style="left: 80%; animation-delay: 3s;">api</i>
-        <i class="material-icons float-icon icon-purple" style="left: 80%; animation-delay: 13s;">computer</i>
+        <i class="material-icons float-icon float-normal icon-blue" style="left: 80%; animation-delay: 3s;">api</i>
+        <i class="material-icons float-icon float-normal icon-purple" style="left: 80%; animation-delay: 13s;">computer</i>
         <!-- Column 7 -->
-        <i class="material-icons float-icon icon-green" style="left: 95%; animation-delay: 7s;">code_blocks</i>
-        <i class="material-icons float-icon icon-orange" style="left: 95%; animation-delay: 17s;">deploy</i>
+        <i class="material-icons float-icon float-normal icon-green" style="left: 95%; animation-delay: 7s;">code_blocks</i>
+        <i class="material-icons float-icon float-normal icon-orange" style="left: 95%; animation-delay: 17s;">deploy</i>
         <!-- Additional Icons -->
-        <i class="material-icons float-icon icon-pink" style="left: 10%; animation-delay: 5s;">javascript</i>
-        <i class="material-icons float-icon icon-blue" style="left: 25%; animation-delay: 15s;">css</i>
-        <i class="material-icons float-icon icon-purple" style="left: 40%; animation-delay: 9s;">html</i>
-        <i class="material-icons float-icon icon-green" style="left: 55%; animation-delay: 19s;">flutter</i>
-        <i class="material-icons float-icon icon-orange" style="left: 70%; animation-delay: 11s;">apps</i>
-        <i class="material-icons float-icon icon-pink" style="left: 85%; animation-delay: 1s;">widgets</i>
+        <i class="material-icons float-icon float-normal icon-pink" style="left: 10%; animation-delay: 5s;">javascript</i>
+        <i class="material-icons float-icon float-normal icon-blue" style="left: 25%; animation-delay: 15s;">css</i>
+        <i class="material-icons float-icon float-normal icon-purple" style="left: 40%; animation-delay: 9s;">html</i>
+        <i class="material-icons float-icon float-normal icon-green" style="left: 55%; animation-delay: 19s;">flutter</i>
+        <i class="material-icons float-icon float-normal icon-orange" style="left: 70%; animation-delay: 11s;">apps</i>
+        <i class="material-icons float-icon float-normal icon-pink" style="left: 85%; animation-delay: 1s;">widgets</i>
+        <!-- Additional Random Icons -->
+        <i class="material-icons float-icon float-zigzag icon-blue" style="left: 15%; animation-delay: 1.5s; font-size: 28px;">data_object</i>
+        <i class="material-icons float-icon float-slow icon-purple" style="left: 45%; animation-delay: 3.5s; font-size: 36px;">integration_instructions</i>
+        <i class="material-icons float-icon float-fast icon-green" style="left: 75%; animation-delay: 5.5s; font-size: 24px;">developer_board</i>
+        <i class="material-icons float-icon float-zigzag icon-pink" style="left: 30%; animation-delay: 7.5s; font-size: 32px;">desktop_windows</i>
+        <i class="material-icons float-icon float-slow icon-orange" style="left: 60%; animation-delay: 9.5s; font-size: 30px;">dns</i>
+        <i class="material-icons float-icon float-fast icon-blue" style="left: 90%; animation-delay: 11.5s; font-size: 26px;">hardware</i>
+        <i class="material-icons float-icon float-zigzag icon-purple" style="left: 25%; animation-delay: 13.5s; font-size: 34px;">memory</i>
+        <i class="material-icons float-icon float-slow icon-green" style="left: 55%; animation-delay: 15.5s; font-size: 28px;">settings_suggest</i>
+        <i class="material-icons float-icon float-fast icon-pink" style="left: 85%; animation-delay: 17.5s; font-size: 30px;">terminal</i>
     </div>
     <header class="bg-gradient-to-r from-blue-600/80 to-purple-600/80 py-3 backdrop-blur-sm">
         <div class="container mx-auto px-4">
@@ -125,22 +161,22 @@
                 </div>
             </div>
             <div class="grid grid-cols-2 gap-4">
-                <div class="bg-slate-800 p-6 rounded-lg">
+                <div class="bg-slate-800/30 p-6 rounded-lg backdrop-blur-md hover:bg-slate-800/50 transition-all">
                     <i class="fab fa-python text-4xl text-yellow-400 mb-4"></i>
                     <h3 class="font-bold mb-2">Python</h3>
                     <p class="text-gray-400">Learn the basics of Python programming</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded-lg">
+                <div class="bg-slate-800/30 p-6 rounded-lg backdrop-blur-md hover:bg-slate-800/50 transition-all">
                     <i class="fab fa-js text-4xl text-yellow-300 mb-4"></i>
                     <h3 class="font-bold mb-2">JavaScript</h3>
                     <p class="text-gray-400">Master web development with JS</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded-lg">
+                <div class="bg-slate-800/30 p-6 rounded-lg backdrop-blur-md hover:bg-slate-800/50 transition-all">
                     <i class="fab fa-react text-4xl text-blue-400 mb-4"></i>
                     <h3 class="font-bold mb-2">React</h3>
                     <p class="text-gray-400">Build modern web applications</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded-lg">
+                <div class="bg-slate-800/30 p-6 rounded-lg backdrop-blur-md hover:bg-slate-800/50 transition-all">
                     <i class="fab fa-git-alt text-4xl text-orange-500 mb-4"></i>
                     <h3 class="font-bold mb-2">Git</h3>
                     <p class="text-gray-400">Version control mastery</p>
@@ -148,13 +184,13 @@
             </div>
         </div>
     </main>
-    <section class="bg-slate-800/20 backdrop-blur-[2px] py-12">
+    <section class="bg-slate-800/10 backdrop-blur-[1px] py-12">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
                 Featured Tutorials
             </h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-md hover:bg-slate-700/50 transition-all">
+                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all">
                     <i class="fab fa-html5 text-3xl text-orange-500 mb-4"></i>
                     <h3 class="font-bold mb-2">HTML & CSS</h3>
                     <p class="text-gray-400 mb-4">Learn the building blocks of web development.</p>
@@ -163,7 +199,7 @@
                         <i class="fas fa-arrow-right text-sm"></i>
                     </a>
                 </div>
-                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-md hover:bg-slate-700/50 transition-all">
+                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all">
                     <i class="fab fa-js text-3xl text-yellow-400 mb-4"></i>
                     <h3 class="font-bold mb-2">JavaScript Basics</h3>
                     <p class="text-gray-400 mb-4">Get started with JavaScript programming.</p>
@@ -172,7 +208,7 @@
                         <i class="fas fa-arrow-right text-sm"></i>
                     </a>
                 </div>
-                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-md hover:bg-slate-700/50 transition-all">
+                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all">
                     <i class="fab fa-react text-3xl text-blue-400 mb-4"></i>
                     <h3 class="font-bold mb-2">React for Beginners</h3>
                     <p class="text-gray-400 mb-4">Build dynamic web applications with React.</p>
@@ -181,7 +217,7 @@
                         <i class="fas fa-arrow-right text-sm"></i>
                     </a>
                 </div>
-                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-md hover:bg-slate-700/50 transition-all">
+                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all">
                     <i class="fab fa-node-js text-3xl text-green-500 mb-4"></i>
                     <h3 class="font-bold mb-2">Node.js Backend</h3>
                     <p class="text-gray-400 mb-4">Build scalable server-side applications.</p>
@@ -191,7 +227,7 @@
                     </a>
                 </div>
 
-                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-md hover:bg-slate-700/50 transition-all">
+                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all">
                     <i class="fab fa-css3 text-3xl text-blue-500 mb-4"></i>
                     <h3 class="font-bold mb-2">Tailwind CSS</h3>
                     <p class="text-gray-400 mb-4">Master modern utility-first CSS framework.</p>
@@ -201,7 +237,7 @@
                     </a>
                 </div>
 
-                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-md hover:bg-slate-700/50 transition-all">
+                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all">
                     <i class="fas fa-code text-3xl text-white mb-4"></i>
                     <h3 class="font-bold mb-2">Next.js Framework</h3>
                     <p class="text-gray-400 mb-4">Create full-stack React applications.</p>
