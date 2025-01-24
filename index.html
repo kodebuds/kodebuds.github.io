@@ -210,8 +210,9 @@
             <h2 class="text-3xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 parallax" data-speed="0.2">
                 Learn Code Build Future
             </h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all parallax" data-speed="0.12">
+            <div class="grid grid-cols-3 gap-8 transform rotate-2">
+                <!-- Row 1: Single card -->
+                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all" data-parallax="0.1">
                     <i class="fab fa-html5 text-3xl text-orange-500 mb-4"></i>
                     <h3 class="font-bold mb-2">HTML & CSS</h3>
                     <p class="text-gray-400 mb-4">Learn the building blocks of web development.</p>
@@ -220,7 +221,10 @@
                         <i class="fas fa-arrow-right text-sm"></i>
                     </a>
                 </div>
-                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all parallax" data-speed="0.14">
+                <div class="col-span-2"></div>
+
+                <!-- Row 2: Three cards -->
+                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all" data-parallax="0.15">
                     <i class="fab fa-js text-3xl text-yellow-400 mb-4"></i>
                     <h3 class="font-bold mb-2">JavaScript Basics</h3>
                     <p class="text-gray-400 mb-4">Get started with JavaScript programming.</p>
@@ -229,7 +233,7 @@
                         <i class="fas fa-arrow-right text-sm"></i>
                     </a>
                 </div>
-                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all parallax" data-speed="0.16">
+                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all" data-parallax="0.2">
                     <i class="fab fa-react text-3xl text-blue-400 mb-4"></i>
                     <h3 class="font-bold mb-2">React for Beginners</h3>
                     <p class="text-gray-400 mb-4">Build dynamic web applications with React.</p>
@@ -238,17 +242,7 @@
                         <i class="fas fa-arrow-right text-sm"></i>
                     </a>
                 </div>
-                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all">
-                    <i class="fab fa-node-js text-3xl text-green-500 mb-4"></i>
-                    <h3 class="font-bold mb-2">Node.js Backend</h3>
-                    <p class="text-gray-400 mb-4">Build scalable server-side applications.</p>
-                    <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center space-x-2">
-                        <span>Read More</span>
-                        <i class="fas fa-arrow-right text-sm"></i>
-                    </a>
-                </div>
-
-                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all">
+                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all" data-parallax="0.15">
                     <i class="fab fa-css3 text-3xl text-blue-500 mb-4"></i>
                     <h3 class="font-bold mb-2">Tailwind CSS</h3>
                     <p class="text-gray-400 mb-4">Master modern utility-first CSS framework.</p>
@@ -258,10 +252,12 @@
                     </a>
                 </div>
 
-                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all">
-                    <i class="fas fa-code text-3xl text-white mb-4"></i>
-                    <h3 class="font-bold mb-2">Next.js Framework</h3>
-                    <p class="text-gray-400 mb-4">Create full-stack React applications.</p>
+                <!-- Row 3: Single card -->
+                <div class="col-span-2"></div>
+                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all" data-parallax="0.1">
+                    <i class="fab fa-node-js text-3xl text-green-500 mb-4"></i>
+                    <h3 class="font-bold mb-2">Node.js Backend</h3>
+                    <p class="text-gray-400 mb-4">Build scalable server-side applications.</p>
                     <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center space-x-2">
                         <span>Read More</span>
                         <i class="fas fa-arrow-right text-sm"></i>
@@ -294,5 +290,6 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="js/background.js"></script>
+    <script src="js/parallax.js"></script>
 </body>
 </html>
