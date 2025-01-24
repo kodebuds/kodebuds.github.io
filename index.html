@@ -85,6 +85,36 @@
             0% { transform: translateY(100vh) translateX(15px) rotate(0deg); opacity: 0; }
             100% { transform: translateY(-10vh) translateX(-15px) rotate(720deg); opacity: 0; }
         }
+
+        .parallax {
+            transition: transform 0.1s cubic-bezier(0.2, 0, 0.8, 1);
+            will-change: transform;
+        }
+
+        .card-parallax-1 { animation: float-diagonal-1 4s ease-in-out infinite; }
+        .card-parallax-2 { animation: float-diagonal-2 5s ease-in-out infinite; }
+        .card-parallax-3 { animation: float-diagonal-3 4.5s ease-in-out infinite; }
+        .card-parallax-4 { animation: float-diagonal-4 5.5s ease-in-out infinite; }
+
+        @keyframes float-diagonal-1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-10px, -10px); }
+        }
+
+        @keyframes float-diagonal-2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(10px, -10px); }
+        }
+
+        @keyframes float-diagonal-3 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-10px, 10px); }
+        }
+
+        @keyframes float-diagonal-4 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(10px, 10px); }
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-gray-100 min-h-screen flex flex-col">
@@ -144,39 +174,38 @@
 
     <main class="container mx-auto px-4 py-12 flex-grow">
         <div class="grid md:grid-cols-2 gap-8 items-center">
-            <div class="space-y-6">
-                <h2 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-                    Learn to Code, Build the Future
+            <div class="space-y-6 relative">
+                <h2 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 parallax" 
+                    data-speed="0.05" 
+                    style="transform-style: preserve-3d">
+                    I'm a passionate developer student with a keen interest in coding and technology. 
                 </h2>
-                <p class="text-gray-300 text-lg">
-                    Join our community of passionate coders and start your programming journey today.
+                <p class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 parallax" 
+                   data-speed="0.08"
+                   style="transform-style: preserve-3d"> 
+                    Learning Code to Build the Future.                  
                 </p>
-                <div class="flex space-x-4">
-                    <a href="#" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold">
-                        Start Learning
-                    </a>
-                    <a href="#" class="border border-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-600">
-                        View Projects
-                    </a>
+                <div class="absolute -z-10 w-full h-full bg-slate-800/10 blur-xl parallax" 
+                     data-speed="0.12">
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-4">
-                <div class="bg-slate-800/30 p-6 rounded-lg backdrop-blur-md hover:bg-slate-800/50 transition-all">
+            <div class="grid grid-cols-2 gap-4 parallax" data-speed="0.15">
+                <div class="bg-slate-800/30 p-6 rounded-lg backdrop-blur-md hover:bg-slate-800/50 transition-all card-parallax-1">
                     <i class="fab fa-python text-4xl text-yellow-400 mb-4"></i>
                     <h3 class="font-bold mb-2">Python</h3>
                     <p class="text-gray-400">Learn the basics of Python programming</p>
                 </div>
-                <div class="bg-slate-800/30 p-6 rounded-lg backdrop-blur-md hover:bg-slate-800/50 transition-all">
+                <div class="bg-slate-800/30 p-6 rounded-lg backdrop-blur-md hover:bg-slate-800/50 transition-all card-parallax-2">
                     <i class="fab fa-js text-4xl text-yellow-300 mb-4"></i>
                     <h3 class="font-bold mb-2">JavaScript</h3>
                     <p class="text-gray-400">Master web development with JS</p>
                 </div>
-                <div class="bg-slate-800/30 p-6 rounded-lg backdrop-blur-md hover:bg-slate-800/50 transition-all">
+                <div class="bg-slate-800/30 p-6 rounded-lg backdrop-blur-md hover:bg-slate-800/50 transition-all card-parallax-3">
                     <i class="fab fa-react text-4xl text-blue-400 mb-4"></i>
                     <h3 class="font-bold mb-2">React</h3>
                     <p class="text-gray-400">Build modern web applications</p>
                 </div>
-                <div class="bg-slate-800/30 p-6 rounded-lg backdrop-blur-md hover:bg-slate-800/50 transition-all">
+                <div class="bg-slate-800/30 p-6 rounded-lg backdrop-blur-md hover:bg-slate-800/50 transition-all card-parallax-4">
                     <i class="fab fa-git-alt text-4xl text-orange-500 mb-4"></i>
                     <h3 class="font-bold mb-2">Git</h3>
                     <p class="text-gray-400">Version control mastery</p>
@@ -186,11 +215,11 @@
     </main>
     <section class="bg-slate-800/10 backdrop-blur-[1px] py-12">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+            <h2 class="text-3xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 parallax" data-speed="0.2">
                 Featured Tutorials
             </h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all">
+                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all parallax" data-speed="0.12">
                     <i class="fab fa-html5 text-3xl text-orange-500 mb-4"></i>
                     <h3 class="font-bold mb-2">HTML & CSS</h3>
                     <p class="text-gray-400 mb-4">Learn the building blocks of web development.</p>
@@ -199,7 +228,7 @@
                         <i class="fas fa-arrow-right text-sm"></i>
                     </a>
                 </div>
-                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all">
+                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all parallax" data-speed="0.14">
                     <i class="fab fa-js text-3xl text-yellow-400 mb-4"></i>
                     <h3 class="font-bold mb-2">JavaScript Basics</h3>
                     <p class="text-gray-400 mb-4">Get started with JavaScript programming.</p>
@@ -208,7 +237,7 @@
                         <i class="fas fa-arrow-right text-sm"></i>
                     </a>
                 </div>
-                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all">
+                <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all parallax" data-speed="0.16">
                     <i class="fab fa-react text-3xl text-blue-400 mb-4"></i>
                     <h3 class="font-bold mb-2">React for Beginners</h3>
                     <p class="text-gray-400 mb-4">Build dynamic web applications with React.</p>

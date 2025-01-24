@@ -29,6 +29,9 @@ function init() {
 
     // Mouse move event listener
     document.addEventListener('mousemove', onMouseMove);
+
+    // Add scroll event listener
+    window.addEventListener('scroll', onScroll);
 }
 
 function createParticleSystem(count, size, color, spread) {
@@ -61,6 +64,20 @@ function createParticleSystem(count, size, color, spread) {
 function onMouseMove(event) {
     mouseX = (event.clientX - window.innerWidth / 2) / 100;
     mouseY = (event.clientY - window.innerHeight / 2) / 100;
+}
+
+function onScroll() {
+    const scrolled = window.pageYOffset;
+    
+    // Parallax effect for particles
+    particles.position.y = scrolled * 0.0005;
+    
+    // Update elements with parallax class
+    document.querySelectorAll('.parallax').forEach((element) => {
+        const speed = element.dataset.speed || 0.2;
+        const yPos = -(scrolled * speed);
+        element.style.transform = `translateY(${yPos}px)`;
+    });
 }
 
 function animate() {
