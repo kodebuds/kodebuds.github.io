@@ -3,55 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kodebuds - Coding Enthusiasts</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            background: #2c3e50;
-            color: white;
-            padding: 1rem 0;
-            text-align: center;
-        }
-        .content {
-            margin: 2rem 0;
-        }
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <title>Kodebuds - Learn to Code</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Kodebuds</h1>
-            <p>A space for coding enthusiasts</p>
+<body class="bg-slate-900 text-gray-100 min-h-screen">
+    <header class="bg-gradient-to-r from-blue-600 to-purple-600 py-6">
+        <div class="container mx-auto px-4">
+            <nav class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold">Kodebuds</h1>
+                <div class="space-x-4">
+                    <a href="#" class="hover:text-blue-200">Home</a>
+                    <a href="#" class="hover:text-blue-200">Tutorials</a>
+                    <a href="#" class="hover:text-blue-200">Projects</a>
+                </div>
+            </nav>
         </div>
     </header>
 
-    <div class="container content">
-        <h2>Welcome</h2>
-        <p>This site is currently under development. Stay tuned for exciting content!</p>
-    </div>
+    <main class="container mx-auto px-4 py-12">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div class="space-y-6">
+                <h2 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                    Learn to Code, Build the Future
+                </h2>
+                <p class="text-gray-300 text-lg">
+                    Join our community of passionate coders and start your programming journey today.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg font-semibold">
+                        Start Learning
+                    </a>
+                    <a href="#" class="border border-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-600">
+                        View Projects
+                    </a>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-slate-800 p-6 rounded-lg">
+                    <i class="fab fa-python text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="font-bold mb-2">Python</h3>
+                    <p class="text-gray-400">Learn the basics of Python programming</p>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-lg">
+                    <i class="fab fa-js text-4xl text-yellow-300 mb-4"></i>
+                    <h3 class="font-bold mb-2">JavaScript</h3>
+                    <p class="text-gray-400">Master web development with JS</p>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-lg">
+                    <i class="fab fa-react text-4xl text-blue-400 mb-4"></i>
+                    <h3 class="font-bold mb-2">React</h3>
+                    <p class="text-gray-400">Build modern web applications</p>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-lg">
+                    <i class="fab fa-git-alt text-4xl text-orange-500 mb-4"></i>
+                    <h3 class="font-bold mb-2">Git</h3>
+                    <p class="text-gray-400">Version control mastery</p>
+                </div>
+            </div>
+        </div>
+    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Kodebuds. All rights reserved.</p>
+    <footer class="bg-slate-800 py-6 mt-12">
+        <div class="container mx-auto px-4 text-center text-gray-400">
+            <p>&copy; 2024 Kodebuds. Building the future through code.</p>
         </div>
     </footer>
 </body>
