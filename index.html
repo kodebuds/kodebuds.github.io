@@ -7,115 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style>
-        #bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -2;
-        }
-        
-        .floating-icons {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: -1;
-            opacity: 0.3;
-        }
-        
-        .float-icon {
-            position: absolute;
-            opacity: 0;
-            font-size: 32px;
-            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
-        }
-
-        .float-normal { animation: float-up 20s linear infinite; }
-        .float-slow { animation: float-up-slow 25s linear infinite; }
-        .float-fast { animation: float-up-fast 15s linear infinite; }
-        .float-zigzag { animation: float-zigzag 22s linear infinite; }
-
-        .icon-blue { color: #60A5FA; }
-        .icon-purple { color: #A78BFA; }
-        .icon-green { color: #34D399; }
-        .icon-orange { color: #FB923C; }
-        .icon-pink { color: #F472B6; }
-        
-        @keyframes float-up {
-            0% {
-                transform: translateY(100vh) rotate(0deg) scale(0.8) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-                transform: translateY(90vh) rotate(45deg) scale(1) translateX(20px);
-            }
-            50% {
-                transform: translateY(50vh) rotate(180deg) scale(0.9) translateX(-20px);
-            }
-            90% {
-                opacity: 0.6;
-                transform: translateY(10vh) rotate(315deg) scale(0.8) translateX(20px);
-            }
-            100% {
-                transform: translateY(-10vh) rotate(360deg) scale(0.6) translateX(0);
-                opacity: 0;
-            }
-        }
-
-        @keyframes float-zigzag {
-            0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 0; }
-            10% { transform: translateY(80vh) translateX(50px) rotate(90deg); opacity: 1; }
-            30% { transform: translateY(60vh) translateX(-50px) rotate(180deg); opacity: 0.8; }
-            50% { transform: translateY(40vh) translateX(50px) rotate(270deg); opacity: 0.6; }
-            70% { transform: translateY(20vh) translateX(-50px) rotate(360deg); opacity: 0.4; }
-            100% { transform: translateY(-10vh) translateX(0) rotate(450deg); opacity: 0; }
-        }
-
-        @keyframes float-up-slow {
-            0% { transform: translateY(100vh) translateX(-30px) rotate(0deg); opacity: 0; }
-            100% { transform: translateY(-10vh) translateX(30px) rotate(360deg); opacity: 0; }
-        }
-
-        @keyframes float-up-fast {
-            0% { transform: translateY(100vh) translateX(15px) rotate(0deg); opacity: 0; }
-            100% { transform: translateY(-10vh) translateX(-15px) rotate(720deg); opacity: 0; }
-        }
-
-        .parallax {
-            transition: transform 0.1s cubic-bezier(0.2, 0, 0.8, 1);
-            will-change: transform;
-        }
-
-        .card-parallax-1 { animation: float-diagonal-1 4s ease-in-out infinite; }
-        .card-parallax-2 { animation: float-diagonal-2 5s ease-in-out infinite; }
-        .card-parallax-3 { animation: float-diagonal-3 4.5s ease-in-out infinite; }
-        .card-parallax-4 { animation: float-diagonal-4 5.5s ease-in-out infinite; }
-
-        @keyframes float-diagonal-1 {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-10px, -10px); }
-        }
-
-        @keyframes float-diagonal-2 {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(10px, -10px); }
-        }
-
-        @keyframes float-diagonal-3 {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-10px, 10px); }
-        }
-
-        @keyframes float-diagonal-4 {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(10px, 10px); }
-        }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="bg-slate-900 text-gray-100 min-h-screen flex flex-col">
     <canvas id="bg"></canvas>
@@ -210,7 +102,8 @@
             <h2 class="text-3xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 parallax" data-speed="0.2">
                 Learn Code Build Future
             </h2>
-            <div class="grid grid-cols-3 gap-8 transform rotate-2">
+            <!-- Changed grid to be responsive and rotation only on larger screens -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 md:transform md:rotate-2">
                 <!-- Row 1: Single card -->
                 <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all" data-parallax="0.1">
                     <i class="fab fa-html5 text-3xl text-orange-500 mb-4"></i>
@@ -221,7 +114,7 @@
                         <i class="fas fa-arrow-right text-sm"></i>
                     </a>
                 </div>
-                <div class="col-span-2"></div>
+                <div class="hidden md:block md:col-span-2"></div>
 
                 <!-- Row 2: Three cards -->
                 <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all" data-parallax="0.15">
@@ -253,7 +146,7 @@
                 </div>
 
                 <!-- Row 3: Single card -->
-                <div class="col-span-2"></div>
+                <div class="hidden md:block md:col-span-2"></div>
                 <div class="bg-slate-700/30 p-6 rounded-lg backdrop-blur-lg hover:bg-slate-700/50 transition-all" data-parallax="0.1">
                     <i class="fab fa-node-js text-3xl text-green-500 mb-4"></i>
                     <h3 class="font-bold mb-2">Node.js Backend</h3>
@@ -269,7 +162,7 @@
     <footer class="bg-slate-800/30 py-3 mt-auto relative backdrop-blur-sm">
         <div class="container mx-auto px-4 relative z-10">            
             <div class="flex items-center justify-center space-x-6">
-                <p class="text-xs text-gray-400">&copy; 2024 Kodebuds</p>
+                <p class="text-xs text-gray-400">&copy; 2025 Kodebuds</p>
                 <div class="flex items-center space-x-4">
                     <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
                         <i class="fab fa-github text-sm"></i>
