@@ -19,19 +19,37 @@
 
 .float-icon {
     position: absolute;
-    opacity: 0;
+    opacity: 0.1;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
     font-size: 32px;
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
 }
 
-.float-normal { animation: float-up 20s linear infinite; }
-.float-slow { animation: float-up-slow 25s linear infinite; }
-.float-fast { animation: float-up-fast 15s linear infinite; }
-.float-zigzag { animation: float-zigzag 22s linear infinite; }
+.float-normal {
+    animation-name: floatNormal;
+    animation: float-up 20s linear infinite;
+}
+
+.float-slow {
+    animation-name: float-up-slow;
+    animation-duration: 25s;
+}
+
+.float-fast {
+    animation-name: float-up-fast;
+    animation-duration: 15s;
+}
+
+.float-zigzag {
+    animation-name: floatZigzag;
+    animation: float-zigzag 22s linear infinite;
+}
 
 .icon-blue { color: #60A5FA; }
 .icon-purple { color: #A78BFA; }
-.icon-green { color: #34D399; }
+.icon-green { color: #4ADE80; }
 .icon-orange { color: #FB923C; }
 .icon-pink { color: #F472B6; }
 
@@ -76,8 +94,42 @@
     100% { transform: translateY(-10vh) translateX(-15px) rotate(720deg); opacity: 0; }
 }
 
+@keyframes floatNormal {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-100px);
+    }
+}
+
+@keyframes floatZigzag {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(20px, -50px);
+    }
+    50% {
+        transform: translate(0, -100px);
+    }
+    75% {
+        transform: translate(-20px, -50px);
+    }
+}
+
+canvas#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
 .parallax {
-    transition: transform 0.1s cubic-bezier(0.2, 0, 0.8, 1);
+    transform: translateZ(0);
+    transition: transform 0.3s ease-out;
     will-change: transform;
 }
 
@@ -104,4 +156,70 @@
 @keyframes float-diagonal-4 {
     0%, 100% { transform: translate(0, 0); }
     50% { transform: translate(10px, 10px); }
+}
+
+/* Background grid pattern */
+.bg-grid-pattern {
+    background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+/* Add subtle floating animation to cards */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.hover\:scale-105:hover {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Gradient border animation */
+@keyframes borderGlow {
+    0%, 100% { border-color: rgba(96, 165, 250, 0.2); }
+    50% { border-color: rgba(167, 139, 250, 0.2); }
+}
+
+.border-slate-700\/50 {
+    animation: borderGlow 4s ease-in-out infinite;
+}
+
+/* Hexagonal pattern background */
+.hex-pattern {
+    background-color: rgba(30, 41, 59, 0.5);
+    background-image: 
+        linear-gradient(60deg, rgba(96, 165, 250, 0.1) 25%, transparent 25.5%, transparent 75%, rgba(96, 165, 250, 0.1) 75.5%),
+        linear-gradient(-60deg, rgba(167, 139, 250, 0.1) 25%, transparent 25.5%, transparent 75%, rgba(167, 139, 250, 0.1) 75.5%);
+    background-size: 60px 100px;
+    animation: hexMove 30s linear infinite;
+}
+
+@keyframes hexMove {
+    from { background-position: 0 0; }
+    to { background-position: 60px 100px; }
+}
+
+/* Gradient animation for borders */
+@keyframes borderPulse {
+    0%, 100% { border-color: rgba(96, 165, 250, 0.2); }
+    50% { border-color: rgba(167, 139, 250, 0.2); }
+}
+
+.border-slate-700\/50 {
+    animation: borderPulse 4s ease-in-out infinite;
+}
+
+/* Card hover effects */
+.group:hover .blur-2xl {
+    --tw-blur: blur(40px);
+    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+/* Form focus effects */
+.focus\:ring-1:focus {
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
